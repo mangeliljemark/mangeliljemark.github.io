@@ -1,38 +1,41 @@
-<! DOCTYPE html<
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Division 5 Södra fantasy</title>
-<meta name="viewport" content="="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css  href="style.css">
+	<title>Division 5 Södra Fantasy Soccer</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="components">    
-        <div class="navbar">
-            <div class="logo">
-                <img src="images/logo.png" alt="logo">
-            </div>
-            <div class="navbar">
-                <ul>
-                    <li><a href="Home">Hem</a></li>
-                    <li><a href="My team">Om mig</a></li>
-                    <li><a href="League">Kontakt</a></li>
-                </ul>
-            </div>
-        </div>
+	<header>
+		<h1>Division 5 Södra Fantasy Soccer</h1>
+	</header>
 
-    </div>
-    <div class="container"
-    <div class="left_side"
-    </div>
-        <div class="profile_text">
-            <div class="profile_image">
-                <img src="images/profilepic.png" alt="Magnus Liljemark">
-            </div>
-            <h1>Division 5 fantasy<br><span>Civilingenjörsstudent</span></h1>
-        </div>
-    <div class="right_side"
+	<section id="login">
+		<h2>Login</h2>
+		<form>
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username">
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password">
+			<input type="submit" value="Submit">
+		</form>
+	</section>
 
+	<section id="player-list">
+		<h2>Player List</h2>
+		<ul>
+			<!-- Player list will be dynamically generated through JavaScript -->
+		</ul>
+	</section>
 
-    </div>
+	<section id="table">
+		<h2>Table</h2>
+		<!-- Table will be dynamically generated through JavaScript -->
+	</section>
+
+	<footer>
+		<p>© Division 5 Södra Fantasy Soccer</p>
+	</footer>
+
+	<script src="script.js"></script>
 </body>
 </html>
