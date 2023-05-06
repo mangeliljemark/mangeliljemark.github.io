@@ -39,6 +39,15 @@ li {
 	align-items: center;
 }
 
+
+li:hover {
+    background-color: #ddd;
+  }
+  
+  #my-team-list li {
+    background-color: #ddd;
+  }
+
 footer {
 	background-color: #333333;
 	color: #ffffff;
