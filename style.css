@@ -19,11 +19,22 @@ h1, h2 {
 	margin: 10px 0;
 }
 
-#login, #player-list, #table {
+#login, #player-list, #table, #addPlayer {
 	background-color: #ffffff;
 	padding: 20px;
 	margin-top: 20px;
 }
+
+.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+  }
 
 ul {
 	list-style: none;
