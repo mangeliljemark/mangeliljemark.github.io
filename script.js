@@ -41,7 +41,7 @@ function clear_round_points() {
 function player_score(player, goals, clean_sheet) {
 	// Add code here to calculate player score
   // How to get value from the fields in html?
-  
+
   const fileUrl = `players/${playerName}.csv`;
   const xhr = new XMLHttpRequest();
   xhr.open("GET", fileUrl);
@@ -98,7 +98,7 @@ function player_score(player, goals, clean_sheet) {
 
 function add_player(playerName, teamName, position) {
 	// Add code here to add player
-	const fileUrl = `players/${playerName}.csv`;
+  const fileUrl = `players/${playerName}.csv`;
   const fileData = `${playerName},${playerTeam},${position},0,0,0,0`;
   const xhr = new XMLHttpRequest();
   xhr.open("POST", fileUrl);
