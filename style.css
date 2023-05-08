@@ -15,6 +15,21 @@ header {
 	padding: 20px;
 }
 
+
+.header img {
+	float: left;
+	width: 100px;
+	height: 60px;
+	background: midnightblue;
+  }
+
+
+.header h1 {
+	position: relative;
+	top: 10px;
+	left: 10px;
+} 
+
 h1, h2 {
 	margin: 10px 0;
 }
