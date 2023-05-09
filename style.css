@@ -12,7 +12,10 @@ body {
 header {
 	background-color: midnightblue;
 	color: #ffffff;
-	padding: 85px;
+	padding: 50px;
+	text-align: center;
+	font-size: 40px;
+	float: left;
 }
 
 h2 {
