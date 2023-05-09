@@ -98,12 +98,31 @@ function player_score(player, goals, clean_sheet) {
 
 function add_player(playerName, teamName, position) {
 	// Add code here to add player
+/*
   const fileUrl = `players/${playerName}.csv`;
   const fileData = `${playerName},${playerTeam},${position},0,0,0,0`;
   const xhr = new XMLHttpRequest();
   xhr.open("POST", fileUrl);
   xhr.setRequestHeader("Content-Type", "text/csv");
   xhr.send(fileData);
+*/
+  // Create element with <a> tag
+  const link = document.createElement("a");
+	
+  // Create a blog object with the file content which you want to add to the file
+  const player = playerName;
+  const team = teamName;
+  const pos = position;
+  const fileInput = '${player},${team},${pos},0,0,0,0'
+  const file = new Blob([fileInput], { type: 'text/plain' });
+  // Add file content in the object URL
+  link.href = URL.createObjectURL(file);
+  // Add file name
+  link.download = '${player}.txt';
+  // Add click event to <a> tag to save file.
+  link.click();
+  URL.revokeObjectURL(link.href);
+
 }
 
 
