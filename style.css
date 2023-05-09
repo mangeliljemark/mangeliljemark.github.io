@@ -20,7 +20,7 @@ header {
 */
 
 
-header image {
+.header image {
 	float: left;
 	background-color: #00355f;
 	padding: 5px;
@@ -28,7 +28,7 @@ header image {
 	width: 55px;
 }
 
-header h1 {
+.header h1 {
 	position: relative;
 	padding: 20px;
 	font-size: 20px;
