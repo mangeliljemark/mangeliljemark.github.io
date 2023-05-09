@@ -18,6 +18,12 @@ header {
 	float: left;
 }
 */
+
+header {
+	background-color: #00355f;
+	color: #ffffff;
+	width: 100%;
+}
 header image {
 	float: left;
 	background-color: #00355f;
