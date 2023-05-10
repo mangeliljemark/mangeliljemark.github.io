@@ -40,6 +40,10 @@ img {
 .text-white {
 	color: #ffffff !important;
 }
+
+.text-blue {
+	color: #00355f;
+}
 .text-center {
 	text-align: center;
 }
