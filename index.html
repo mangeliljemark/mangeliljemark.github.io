@@ -5,10 +5,17 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<header>
 	<div class="header">
-		<img src="images/jhff_logo.jpg" alt="JHFF logo"/> 
-		<h1> Division 5 Södra Fantasy</h1>
+		<a href="/">
+			<img src="images/jhff_logo.jpg" alt="JHFF logo" width="130" height="70"/> 
+		</a>
+			<h1 class="sidtitel text-center"> Division 5 Södra Fantasy</h1>
+			<ul>	
+
+			</ul>
 	</div>	
+	</header>
 	<section id="login">
 		<h2>Login</h2>
 		<form>
@@ -39,15 +46,18 @@
 		</section>
 
 	<section id="player-list">
+	<div class="playerlist">
 		<h2>Player List</h2>
-		<ul>
-            <li data-player-id="1">Player 1</li>
-            <li data-player-id="2">Player 2</li>
-            <li data-player-id="3">Player 3</li>
-            <li data-player-id="4">Player 4</li>
-            <li data-player-id="5">Player 5</li>
-			<!-- Player list will be dynamically generated through JavaScript -->
-		</ul>
+		<div class="playerboxes">
+			<iframe src='spelarnamn.html' title="playername playerbox-width no-border white-back">
+
+			</iframe>
+			<iframe src="spelarlag.html" title="playerteam playerbox-width no-border blue-back">
+			</iframe>
+
+		</div>
+
+	</div>
 	</section>
 
     <section id="my-team">
