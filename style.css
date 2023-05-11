@@ -85,6 +85,46 @@ h2 {
 	width: 10%;
 }
 
+.playerList-title {
+	border-bottom: black;
+	float: left;
+}
+
+.namebox {
+	color: #00355f;
+	background-color: #ddd;
+}
+
+.lagbox {
+	color: #ddd;
+	background-color: #00355f;
+}
+
+.posbox {
+	color: #00355f;
+	background-color: #ddd;
+}
+
+.totbox {
+	color: #ddd;
+	background-color: #00355f;
+}
+
+.roundbox {
+	color: #00355f;
+	background-color: #ddd;
+}
+
+.goalsbox {
+	color: #ddd;
+	background-color: #00355f;
+}
+
+.csbox {
+	color: #00355f;
+	background-color: #ddd;
+}
+
 ul {
 	list-style: none;
 	margin: 0;

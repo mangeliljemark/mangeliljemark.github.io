@@ -10,52 +10,23 @@ class Player:
         
 class Main:
     def __init__(self):
-       self.playerList = list() 
-
-    def add_points(self, name, team, goals, cs):
-        for player in self.playerList:
-            print(player.name == name)
-            print(player.team == team)
-            if player.name == name and player.team == team:
-                print('points!')
-                player.goals += goals
-                player.cs += cs
-                if goals > 0:
-                    if player.pos == "M" or player.pos == "DEF":
-                        player.tot_points += goals * 6
-                        player.round_points += goals * 6
-                    elif player.pos == "MID":
-                        player.tot_points += goals * 5
-                        player.round_points += goals * 5
-                    else:
-                        player.tot_points += goals * 4
-                        player.round_points += goals * 4
-                if cs > 0:
-                    if player.pos == "GK" or player.pos == "DEF":
-                        player.tot_points += 4
-                        player.round_points += 4
-                    elif player.pos == "MID":
-                        player.tot_points += 1
-                        player.round_points += 1
-        else:
-            print("Player not found")
+       self.playerList = list()         
     
     def print_players_by_attribute(self):
-        self.sort_on_points()
-        open('playerfile.txt', 'w').close()
-        open('teamfile.txt', 'w').close()
-        open('posfile.txt', 'w').close()
-        open('totpofile.txt', 'w').close()
-        open('roundfile.txt', 'w').close()
-        open('goalsfile.txt', 'w').close()
-        open('csfile.txt', 'w').close()
-        playerfile = open('playerfile.txt', 'a')
-        teamfile = open('teamfile.txt', 'a')
-        posfile = open('posfile.txt', 'a')
-        tot_file = open('totpofile.txt', 'a')
-        round_file = open('roundfile.txt', 'a')
-        goals_file = open('goalsfile.txt', 'a')
-        cs_file = open('csfile.txt', 'a')
+        open('spelare.txt', 'w').close()
+        open('lag.txt', 'w').close()
+        open('position.txt', 'w').close()
+        open('total.txt', 'w').close()
+        open('round.txt', 'w').close()
+        open('goals.txt', 'w').close()
+        open('cs.txt', 'w').close()
+        playerfile = open('spelare.txt', 'a')
+        teamfile = open('lag.txt', 'a')
+        posfile = open('position.txt', 'a')
+        tot_file = open('total.txt', 'a')
+        round_file = open('round.txt', 'a')
+        goals_file = open('goals.txt', 'a')
+        cs_file = open('cs.txt', 'a')
         for player in self.playerList:
             playerfile.write(player.name + '\n')
             teamfile.write(player.team + '\n')
@@ -72,7 +43,6 @@ class Main:
         goals_file.close()
         cs_file.close()
 
-
         
     def add_player(self, player, team, pos):
         playerFile = open('players.txt', 'a')
@@ -81,7 +51,7 @@ class Main:
         playerFile.close()
 
     def load_players(self):
-        playerFile = open("players.txt", "r")
+        playerFile = open("players.txt", "r+")
         list = playerFile.readlines()
         playerFile.close()
         for player in list:
@@ -93,39 +63,73 @@ class Main:
         self.playerList.sort(key = lambda x: x.tot_points, reverse = True)
 
     def save_points(self):
-        playerFile = open("players.txt", "w")
+        open('players.txt', 'w').close()
+        playerFile = open("players.txt", "a")
+        self.sort_on_points()
         for player in self.playerList:
-            string = player.name + ',' + player.team + ',' +  player.pos + ',0,0,0,0\n'
+            string = player.name + ',' + player.team + ',' +  player.pos + ',' + str(player.tot_points) + ',' + str(player.round_points) + ',' + str(player.goals) + ',' + str(player.cs) + '\n'
             playerFile.write(string)
         playerFile.close()
 
+
+    def add_loop(self):
+        namn = input('Spelarnamn (avbryt med #, inga å, ä, ö): ')
+        while namn != '#':
+            lag = input('Spelarens lag (inga å, ä, ö): ')
+            pos = input('Position (GK, DEF, MID, ANF): ')
+            self.add_player(namn, lag, pos)
+            print('\n')
+            namn = input('Spelarnamn (avbryt med #, inga å, ä, ö): ')
+
+    def add_points(self, name, team, goals):
+        for player in self.playerList:
+            if player.name == name and player.team == team:
+                player.goals += goals
+                if goals > 0:
+                    if player.pos == "M" or player.pos == "DEF":
+                        player.tot_points += goals * 6
+                        player.round_points += goals * 6
+                    elif player.pos == "MID":
+                        player.tot_points += goals * 5
+                        player.round_points += goals * 5
+                    else:
+                        player.tot_points += goals * 4
+                        player.round_points += goals * 4
+
+    def add_cs(self, lag):
+        for player in self.playerList:
+            if player.team == lag:
+                if player.pos == "GK" or player.pos == "DEF":
+                        player.tot_points += 4
+                        player.round_points += 4
+                elif player.pos == "MID":
+                    player.tot_points += 1
+                    player.round_points += 1
+
+
     def mainloop(self):
         self.load_players()
-        print('Vad vill du göra?')
-        val = input('1. Lägg till spelare \n 2. Lägg till poäng\n')
-        if val =='1':
-            namn = input('Spelarnamn (max 30 bokstäver): ')
-            lag = input('Spelarens lag: ')
-            pos = input('Position: ')
-            while namn != '#':
-                self.add_player(namn, lag, pos)
-                print('\n')
-                namn = input('Spelarnamn (max 30 bokstäver, avbryt med #, inga å, ä, ö): ')
-                lag = input('Spelarens lag (inga å, ä, ö): ')
-                pos = input('Position (GK, DEF, MID, ANF): ')
+        print('Gjorda mål')
+        namn = input('Målskytt (avbryt med #): ')
+        while namn != '#':
+            lag = input('Lag: ')
+            goals = input('Antal mål: ')
+            self.add_points(namn, lag, goals)
+            namn = input('Målskytt (avbryt med #): ')
+        
+        print('Hållna nollor')
+        lag = input('Lag (avbryt med #): ')
+        while lag != '#':
+            self.add_cs(lag)
+            lag = input('Lag (avbryt med #): ')
+        
+        print('Sorterar på totala poäng')
+        self.sort_on_points()
 
-        if val == '2':
-            self.load_players()
-            namn = input('Spelarnamn (inga å, ä, ö): ')
-            lag = input('Spelarens lag (inga å, ä, ö): ')
-            while namn != '#':
-                goals = input('Antal mål: ')
-                nollan = input('Hållen nolla? (1 eller 0): ')
-                self.add_points(namn, lag, int(goals), int(nollan))
-                print('\n')
-                namn = input('Spelarnamn (avbryt med #,1 inga å, ä, ö): ')
-                lag = input('Spelarens lag (inga å, ä, ö): ')
-            self.sort_on_points()
-            self.save_points()
+        self.print_players_by_attribute()
+        self.save_points()
+
+
+        
 m = Main()
-m.mainloop()
+m.add_loop()
